@@ -4,12 +4,12 @@ import pandas as pd
 import joblib
 
 # load our model pipeline object
-model = joblib.load("heart_disease_model.joblib")
+model = joblib.load("parkinsons_model.joblib")
 
 # insert a title for the app and instructions
 
-st.title("Heart Disease Prediction Model")
-st.subheader("Enter patient information and submit for likelihood of heart disease")
+st.title("Parkinsons Disease Prediction Model")
+st.subheader("Enter patient information and submit for likelihood of parkinson's disease")
 
 # age input form
 
