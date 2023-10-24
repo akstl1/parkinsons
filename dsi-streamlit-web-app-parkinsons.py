@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 
 # load our model pipeline object
-model = joblib.load("model.joblib")
+model = joblib.load("parkinsons_model.joblib")
 
 # insert a title for the app and instructions
 
