@@ -15,7 +15,7 @@ st.subheader("Enter patient information and submit for likelihood of parkinson's
 # chest pain input form
 
 MDVP_Fo = st.number_input(
-    label = "Enter the patients's recorded MDVP:Fo(Hz)",
+    label = "Enter the patients's recorded MDVP:Fo(Hz) [0-300]",
     min_value = 0.000000,
     max_value = 300.000000,
     value = 150.000000,
@@ -24,7 +24,7 @@ MDVP_Fo = st.number_input(
     )
 
 MDVP_Fhi = st.number_input(
-    label = "Enter the patients's recorded MDVP:Fhi(Hz)",
+    label = "Enter the patients's recorded MDVP:Fhi(Hz) [50-700]",
     min_value = 50.0,
     max_value = 700.0,
     value = 500.0,
@@ -33,7 +33,7 @@ MDVP_Fhi = st.number_input(
     )
 
 MDVP_Flo = st.number_input(
-    label = "Enter the patients's recorded MDVP:Flo(Hz)",
+    label = "Enter the patients's recorded MDVP:Flo(Hz) [50-300]",
     min_value = 50.0,
     max_value = 300.0,
     value = 100.0,
@@ -42,7 +42,7 @@ MDVP_Flo = st.number_input(
     )
 
 MDVP_Jitter_pct = st.number_input(
-    label = "Enter the patients's recorded MDVP:Jitter(%)",
+    label = "Enter the patients's recorded MDVP:Jitter(%) [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.5,
@@ -51,7 +51,7 @@ MDVP_Jitter_pct = st.number_input(
     )
 
 MDVP_Jitter_abs = st.number_input(
-    label = "Enter the patients's recorded MDVP:Jitter(Abs)",
+    label = "Enter the patients's recorded MDVP:Jitter(Abs) [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.0001,
@@ -60,7 +60,7 @@ MDVP_Jitter_abs = st.number_input(
     )
 
 MDVP_RAP = st.number_input(
-    label = "Enter the patients's recorded MDVP:RAP",
+    label = "Enter the patients's recorded MDVP:RAP [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = .004,
@@ -69,7 +69,7 @@ MDVP_RAP = st.number_input(
     )
 
 MDVP_PPQ = st.number_input(
-    label = "Enter the patient's recorded MDVP:PPQ",
+    label = "Enter the patient's recorded MDVP:PPQ [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.001,
@@ -78,7 +78,7 @@ MDVP_PPQ = st.number_input(
     )
 
 Jitter_DDP = st.number_input(
-    label = "Enter the patient's recorded Jitter:DDP",
+    label = "Enter the patient's recorded Jitter:DDP [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.001,
@@ -87,7 +87,7 @@ Jitter_DDP = st.number_input(
     )
 
 MDVP_Shimmer = st.number_input(
-    label = "Enter the patient's recorded MDVP:Shimmer",
+    label = "Enter the patient's recorded MDVP:Shimmer [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.05,
@@ -96,7 +96,7 @@ MDVP_Shimmer = st.number_input(
     )
 
 MDVP_Shimmer_db = st.number_input(
-    label = "Enter the patient's recorded MDVP:Shimmer(dB)",
+    label = "Enter the patient's recorded MDVP:Shimmer(dB) [0-2]",
     min_value = 0.0,
     max_value = 2.0,
     value = 1.0,
@@ -105,7 +105,7 @@ MDVP_Shimmer_db = st.number_input(
     )
 
 Shimmer_APQ3 = st.number_input(
-    label = "Enter the patient's recorded Shimmer:APQ3",
+    label = "Enter the patient's recorded Shimmer:APQ3 [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.007,
@@ -114,7 +114,7 @@ Shimmer_APQ3 = st.number_input(
     )
 
 Shimmer_APQ5 = st.number_input(
-    label = "Enter the patient's recorded Shimmer:APQ5",
+    label = "Enter the patient's recorded Shimmer:APQ5 [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.05,
@@ -123,7 +123,7 @@ Shimmer_APQ5 = st.number_input(
     )
 
 MDVP_APQ = st.number_input(
-    label = "Enter the patient's recorded MDVP:APQ",
+    label = "Enter the patient's recorded MDVP:APQ [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.1,
@@ -132,7 +132,7 @@ MDVP_APQ = st.number_input(
     )
 
 Shimmer_DDA = st.number_input(
-    label = "Enter the patient's recorded Shimmer:DDA",
+    label = "Enter the patient's recorded Shimmer:DDA [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.1,
@@ -141,7 +141,7 @@ Shimmer_DDA = st.number_input(
     )
 
 NHR = st.number_input(
-    label = "Enter the patient's recorded NHR",
+    label = "Enter the patient's recorded NHR [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.2,
@@ -150,7 +150,7 @@ NHR = st.number_input(
     )
 
 HNR = st.number_input(
-    label = "Enter the patient's recorded HNR",
+    label = "Enter the patient's recorded HNR [0-50]",
     min_value = 0.0,
     max_value = 50.0,
     value = 30.0,
@@ -159,7 +159,7 @@ HNR = st.number_input(
     )
 
 RPDE = st.number_input(
-    label = "Enter the patient's recorded RPDE",
+    label = "Enter the patient's recorded RPDE [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.5,
@@ -168,7 +168,7 @@ RPDE = st.number_input(
     )
 
 DFA = st.number_input(
-    label = "Enter the patient's recorded DFA",
+    label = "Enter the patient's recorded DFA [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.6,
@@ -177,7 +177,7 @@ DFA = st.number_input(
     )
 
 spread1 = st.number_input(
-    label = "Enter the patient's recorded spread1",
+    label = "Enter the patient's recorded spread1 [-10 - 0]",
     min_value = -10.0,
     max_value = 0.0,
     value = -3.0,
@@ -186,7 +186,7 @@ spread1 = st.number_input(
     )
 
 spread2 = st.number_input(
-    label = "Enter the patient's recorded spread2",
+    label = "Enter the patient's recorded spread2 [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.3,
@@ -195,7 +195,7 @@ spread2 = st.number_input(
     )
 
 D2 = st.number_input(
-    label = "Enter the patient's recorded D2",
+    label = "Enter the patient's recorded D2 [1-4]",
     min_value = 1.0,
     max_value = 4.0,
     value = 2.0,
@@ -204,7 +204,7 @@ D2 = st.number_input(
     )
 
 PPE = st.number_input(
-    label = "Enter the patient's recorded PPE",
+    label = "Enter the patient's recorded PPE [0-1]",
     min_value = 0.0,
     max_value = 1.0,
     value = 0.3,
