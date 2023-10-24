@@ -11,100 +11,256 @@ model = joblib.load("parkinsons_model.joblib")
 st.title("Parkinsons Disease Prediction Model")
 st.subheader("Enter patient information and submit for likelihood of parkinson's disease")
 
-# age input form
-
-age = st.number_input(
-    label = "Enter the patient's age",
-    min_value = 18,
-    max_value = 120,
-    value = 35) #default value
-
-
-
-# gender input form
-
-sex = st.radio(
-    label = "Enter the patient's gender",
-    options = ['M','F'])
-
-if sex=='M':
-    sex=1
-else:
-    sex=0
 
 # chest pain input form
 
-chest_pain_type = st.number_input(
-    label = "Enter the patients's chest pain type (0-3)",
-    min_value = 0,
-    max_value = 3,
-    value = 2)
+MDVP_Fo = st.number_input(
+    label = "Enter the patients's recorded MDVP:Fo(Hz)",
+    min_value = 0.000000,
+    max_value = 300.000000,
+    value = 150.000000,
+    step=0.01,
+    format="%0.6f"
+    )
 
-resting_blood_pressure = st.number_input(
-    label = "Enter the patients's resting blood pressure",
-    min_value = 0,
-    max_value = 200,
-    value = 120)
+MDVP_Fhi = st.number_input(
+    label = "Enter the patients's recorded MDVP:Fhi(Hz)",
+    min_value = 50.0,
+    max_value = 700.0,
+    value = 500.0,
+    step=0.01,
+    format="%0.6f"
+    )
 
-serum_cholestoral = st.number_input(
-    label = "Enter the patients's serum choleroral in mg/dl",
-    min_value = 0,
-    max_value = 200,
-    value = 80)
+MDVP_Flo = st.number_input(
+    label = "Enter the patients's recorded MDVP:Flo(Hz)",
+    min_value = 50.0,
+    max_value = 300.0,
+    value = 100.0,
+    step=0.01,
+    format="%0.6f"
+    )
 
-fasting_blood_sugar = st.number_input(
-    label = "Enter the patients's fasting blood sugar",
-    min_value = 0,
-    max_value = 1,
-    value = 0)
+MDVP_Jitter_pct = st.number_input(
+    label = "Enter the patients's recorded MDVP:Jitter(%)",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.5,
+    step=0.01,
+    format="%0.6f"
+    )
 
-resting_ecg = st.number_input(
-    label = "Enter the patients's resting ECG (0-2)",
-    min_value = 0,
-    max_value = 2,
-    value = 0)
+MDVP_Jitter_abs = st.number_input(
+    label = "Enter the patients's recorded MDVP:Jitter(Abs)",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.0001,
+    step=0.01,
+    format="%0.6f"
+    )
 
-max_hr = st.number_input(
-    label = "Enter the patients's Max heart rate achieved",
-    min_value = 0,
-    max_value = 300,
-    value = 150)
+MDVP_RAP = st.number_input(
+    label = "Enter the patients's recorded MDVP:RAP",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = .004,
+    step=0.01,
+    format="%0.6f"
+    )
 
-exercise_induced_angina = st.number_input(
-    label = "Enter whether patient experienced Exercise Induced Angina (0-1) ",
-    min_value = 0,
-    max_value = 1,
-    value = 0)
+MDVP_PPQ = st.number_input(
+    label = "Enter the patient's recorded MDVP:PPQ",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.001,
+    step=0.01,
+    format="%0.6f"
+    )
 
-oldpeak = st.number_input(
-    label = "Enter the patient's Oldpeak results (0-2) ",
-    min_value = 0,
-    max_value = 2,
-    value = 0)
+Jitter_DDP = st.number_input(
+    label = "Enter the patient's recorded Jitter:DDP",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.001,
+    step=0.01,
+    format="%0.6f"
+    )
 
-slope = st.number_input(
-    label = "Enter the patient's Slope results (0-2) ",
-    min_value = 0,
-    max_value = 2,
-    value = 0)
+MDVP_Shimmer = st.number_input(
+    label = "Enter the patient's recorded MDVP:Shimmer",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.05,
+    step=0.01,
+    format="%0.6f"
+    )
 
-ca = st.number_input(
-    label = "Enter the patient's ca results (0-4) ",
-    min_value = 0,
-    max_value = 4,
-    value = 0)
+MDVP_Shimmer_db = st.number_input(
+    label = "Enter the patient's recorded MDVP:Shimmer(dB)",
+    min_value = 0.0,
+    max_value = 2.0,
+    value = 1.0,
+    step=0.01,
+    format="%0.6f"
+    )
 
-thal = st.number_input(
-    label = "Enter the patient's thal results (0-3) ",
-    min_value = 0,
-    max_value = 3,
-    value = 0)
+Shimmer_APQ3 = st.number_input(
+    label = "Enter the patient's recorded Shimmer:APQ3",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.007,
+    step=0.01,
+    format="%0.6f"
+    )
+
+Shimmer_APQ5 = st.number_input(
+    label = "Enter the patient's recorded Shimmer:APQ5",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.05,
+    step=0.01,
+    format="%0.6f"
+    )
+
+MDVP_APQ = st.number_input(
+    label = "Enter the patient's recorded MDVP:APQ",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.1,
+    step=0.01,
+    format="%0.6f"
+    )
+
+Shimmer_DDA = st.number_input(
+    label = "Enter the patient's recorded Shimmer:DDA",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.1,
+    step=0.01,
+    format="%0.6f"
+    )
+
+NHR = st.number_input(
+    label = "Enter the patient's recorded NHR",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.2,
+    step=0.01,
+    format="%0.6f"
+    )
+
+HNR = st.number_input(
+    label = "Enter the patient's recorded HNR",
+    min_value = 0.0,
+    max_value = 50.0,
+    value = 30.0,
+    step=0.01,
+    format="%0.6f"
+    )
+
+RPDE = st.number_input(
+    label = "Enter the patient's recorded RPDE",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.5,
+    step=0.01,
+    format="%0.6f"
+    )
+
+DFA = st.number_input(
+    label = "Enter the patient's recorded DFA",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.6,
+    step=0.01,
+    format="%0.6f"
+    )
+
+spread1 = st.number_input(
+    label = "Enter the patient's recorded spread1",
+    min_value = -10.0,
+    max_value = 0.0,
+    value = -3.0,
+    step=0.01,
+    format="%0.6f"
+    )
+
+spread2 = st.number_input(
+    label = "Enter the patient's recorded spread2",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.3,
+    step=0.01,
+    format="%0.6f"
+    )
+
+D2 = st.number_input(
+    label = "Enter the patient's recorded D2",
+    min_value = 1.0,
+    max_value = 4.0,
+    value = 2.0,
+    step=0.01,
+    format="%0.6f"
+    )
+
+PPE = st.number_input(
+    label = "Enter the patient's recorded PPE",
+    min_value = 0.0,
+    max_value = 1.0,
+    value = 0.3,
+    step=0.01,
+    format="%0.6f"
+    )
+
+#({"MDVP:Fo(Hz)" : [MDVP_Fo],
+#"MDVP:Fhi(Hz)" : [MDVP_Fhi],
+#"MDVP:Flo(Hz)" : [MDVP_Flo],
+#"MDVP:Jitter(%)" : [MDVP_Jitter_pct],
+#"MDVP:Jitter(Abs)" : [MDVP_Jitter_abs],
+#"MDVP:RAP" : [MDVP_RAP],
+#"MDVP:PPQ" : [MDVP_PPQ],
+#"Jitter:DDP" : [Jitter_DDP],
+#"MDVP:Shimmer" : [MDVP_Shimmer],
+#"MDVP:Shimmer(dB)" : [MDVP_Shimmer_db],
+#"Shimmer:APQ3" : [Shimmer_APQ3],
+#"Shimmer:APQ5" : [Shimmer_APQ5],
+#"MDVP:APQ" : [MDVP_APQ],
+#"Shimmer:DDA" : [Shimmer_DDA],
+#"NHR" : [NHR],
+#"HNR" : [HNR],
+#"RPDE" : [RPDE],
+#"DFA" : [DFA],
+#"spread1" : [spread1],
+#"spread2" : [spread2],
+#"D2" : [D2],
+#"PPE" : [PPE]})
 
 # submit inputs to model
 
 if st.button("Submit For Prediction"):
     # store data into df for prediction
-    new_data = pd.DataFrame({"age" : [age], "sex" : [sex], "chest_pain_type" : [chest_pain_type],"resting_blood_pressure" : [resting_blood_pressure],"serum_cholestoral" : [serum_cholestoral],"fasting_blood_sugar" : [fasting_blood_sugar],"resting_ecg" : [resting_ecg],"max_hr" : [max_hr],"exercise_induced_angina" : [exercise_induced_angina],"oldpeak" : [oldpeak],"slope" : [slope],"ca" : [ca],"thal" : [thal]})
+    new_data = pd.DataFrame({"MDVP:Fo(Hz)" : [MDVP_Fo],
+    "MDVP:Fhi(Hz)" : [MDVP_Fhi],
+    "MDVP:Flo(Hz)" : [MDVP_Flo],
+    "MDVP:Jitter(%)" : [MDVP_Jitter_pct],
+    "MDVP:Jitter(Abs)" : [MDVP_Jitter_abs],
+    "MDVP:RAP" : [MDVP_RAP],
+    "MDVP:PPQ" : [MDVP_PPQ],
+    "Jitter:DDP" : [Jitter_DDP],
+    "MDVP:Shimmer" : [MDVP_Shimmer],
+    "MDVP:Shimmer(dB)" : [MDVP_Shimmer_db],
+    "Shimmer:APQ3" : [Shimmer_APQ3],
+    "Shimmer:APQ5" : [Shimmer_APQ5],
+    "MDVP:APQ" : [MDVP_APQ],
+    "Shimmer:DDA" : [Shimmer_DDA],
+    "NHR" : [NHR],
+    "HNR" : [HNR],
+    "RPDE" : [RPDE],
+    "DFA" : [DFA],
+    "spread1" : [spread1],
+    "spread2" : [spread2],
+    "D2" : [D2],
+    "PPE" : [PPE]})
     
     # apply model pipeline to the input data and extract probability prediction
     pred_proba = model.predict_proba(new_data)[0][1]
